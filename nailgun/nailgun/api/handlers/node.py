@@ -43,7 +43,7 @@ from nailgun.api.handlers.base import HandlerRegistrator
 
 
 class NodeHandler(JSONHandler):
-    fields = ('id', 'name', 'meta', 'progress',
+    fields = ('id', 'name', 'meta', 'progress', 'roles',
               'status', 'mac', 'fqdn', 'ip', 'manufacturer', 'platform_name',
               'pending_addition', 'pending_deletion', 'os_platform',
               'error_type', 'online', 'cluster')
@@ -58,7 +58,6 @@ class NodeHandler(JSONHandler):
             network_manager = NetworkManager()
             json_data['network_data'] = network_manager.get_node_networks(
                 instance.id)
-            json_data['roles'] = [r.name for r in instance.roles]
         except:
             logger.error(traceback.format_exc())
         return json_data
@@ -104,7 +103,7 @@ class NodeHandler(JSONHandler):
                     network_manager.clear_assigned_networks(node.id)
                     network_manager.clear_all_allowed_networks(node.id)
         if not node.status in ('provisioning', 'deploying') \
-                and "role" in data or "cluster_id" in data:
+                and "roles" in data or "cluster_id" in data:
             try:
                 node.attributes.volumes = \
                     node.volume_manager.gen_volumes_info()
@@ -318,7 +317,7 @@ class NodeCollectionHandler(JSONHandler):
                             node.attributes.volumes
                         )
                     ),
-                    "role" in nd,
+                    "roles" in nd,
                     "cluster_id" in nd
                 )
                 if any(variants):

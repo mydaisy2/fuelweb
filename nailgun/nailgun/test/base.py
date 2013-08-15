@@ -194,7 +194,7 @@ class Environment(object):
 
         node_data = {
             'mac': mac,
-            'role': 'controller',
+            'roles': ['controller'],
             'status': 'discover',
             'meta': default_metadata
         }

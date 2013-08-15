@@ -47,9 +47,9 @@ class TestHandlers(BaseHandlers):
                 "type": "compute"
             },
             nodes_kwargs=[
-                {"role": "controller", "pending_addition": True},
-                {"role": "controller", "pending_addition": True},
-                {"role": "controller", "pending_addition": True},
+                {"roles": ["controller"], "pending_addition": True},
+                {"roles": ["controller"], "pending_addition": True},
+                {"roles": ["controller"], "pending_addition": True},
             ]
         )
         cluster_db = self.env.clusters[0]
@@ -155,8 +155,8 @@ class TestHandlers(BaseHandlers):
 
             nodes.append({'uid': n.id, 'status': n.status, 'ip': n.ip,
                           'error_type': n.error_type, 'mac': n.mac,
-                          'role': n.role, 'id': n.id, 'fqdn':
-                          '%s-%d.%s' % (n.role, n.id, settings.DNS_DOMAIN),
+                          'roles': n.roles, 'id': n.id, 'fqdn':
+                          'node-%d.%s' % (n.id, settings.DNS_DOMAIN),
                           'progress': 0, 'meta': n.meta, 'online': True,
                           'network_data': [{'brd': '192.168.0.255',
                                             'ip': node_ip_management,
@@ -194,7 +194,7 @@ class TestHandlers(BaseHandlers):
                 'power_user': 'root',
                 'power_address': n.ip,
                 'power_pass': settings.PATH_TO_BOOTSTRAP_SSH_KEY,
-                'name': TaskHelper.make_slave_name(n.id, n.role),
+                'name': TaskHelper.make_slave_name(n.id),
                 'hostname': n.fqdn,
                 'name_servers': '\"%s\"' % settings.DNS_SERVERS,
                 'name_servers_search': '\"%s\"' % settings.DNS_SEARCH,
@@ -252,7 +252,7 @@ class TestHandlers(BaseHandlers):
             provision_nodes.append(pnd)
 
         controller_nodes = filter(
-            lambda node: node['role'] == 'controller',
+            lambda node: 'controller' in node['roles'],
             nodes)
         msg['args']['attributes']['controller_nodes'] = controller_nodes
         msg['args']['nodes'] = nodes
@@ -288,8 +288,8 @@ class TestHandlers(BaseHandlers):
                 'net_manager': 'VlanManager',
             },
             nodes_kwargs=[
-                {"role": "controller", "pending_addition": True},
-                {"role": "controller", "pending_addition": True},
+                {"roles": ["controller"], "pending_addition": True},
+                {"roles": ["controller"], "pending_addition": True},
             ]
         )
 
@@ -370,8 +370,7 @@ class TestHandlers(BaseHandlers):
         self.assertEquals(len(n_rpc_provision), 1)
         self.assertEquals(
             n_rpc_provision[0]['name'],
-            TaskHelper.make_slave_name(self.env.nodes[0].id,
-                                       self.env.nodes[0].role)
+            TaskHelper.make_slave_name(self.env.nodes[0].id)
         )
 
         # deploy method call [1][0][1][1]
@@ -389,7 +388,7 @@ class TestHandlers(BaseHandlers):
                 {
                     "pending_deletion": True,
                     "status": "ready",
-                    "role": "compute"
+                    "roles": ["compute"]
                 },
             ]
         )
@@ -468,7 +467,7 @@ class TestHandlers(BaseHandlers):
             cluster_kwargs={
                 'mode': 'multinode'},
             nodes_kwargs=[
-                {'role': 'compute', 'pending_addition': True}])
+                {'roles': ['compute'], 'pending_addition': True}])
 
         task = self.env.launch_deployment()
 
@@ -483,7 +482,7 @@ class TestHandlers(BaseHandlers):
             cluster_kwargs={
                 'mode': 'ha'},
             nodes_kwargs=[
-                {'role': 'compute', 'pending_addition': True}])
+                {'roles': ['compute'], 'pending_addition': True}])
 
         task = self.env.launch_deployment()
 
@@ -511,7 +510,7 @@ class TestHandlers(BaseHandlers):
             nodes_kwargs=[
                 {
                     'api': True,
-                    'role': 'controller',
+                    'roles': ['controller'],
                     'pending_addition': True,
                     'meta': meta,
                     'mac': "00:00:00:00:00:66"
