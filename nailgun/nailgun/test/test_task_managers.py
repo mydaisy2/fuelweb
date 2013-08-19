@@ -193,15 +193,15 @@ class TestTaskManagers(BaseHandlers):
     def test_deployment_fails_if_node_offline(self):
         cluster = self.env.create_cluster(api=True)
         node1 = self.env.create_node(cluster_id=cluster['id'],
-                                     role="controller",
+                                     roles=["controller"],
                                      pending_addition=True)
         node2 = self.env.create_node(cluster_id=cluster['id'],
-                                     role="compute",
+                                     roles=["compute"],
                                      online=False,
                                      name="Offline node",
                                      pending_addition=True)
         node3 = self.env.create_node(cluster_id=cluster['id'],
-                                     role="compute",
+                                     roles=["compute"],
                                      pending_addition=True)
         supertask = self.env.launch_deployment()
         self.env.wait_error(
@@ -219,7 +219,7 @@ class TestTaskManagers(BaseHandlers):
                 {"pending_addition": True},
                 {"pending_addition": True},
                 {"pending_addition": True},
-                {"role": "compute", "pending_addition": True}
+                {"roles": ["compute"], "pending_addition": True}
             ]
         )
         supertask = self.env.launch_deployment()
@@ -228,7 +228,7 @@ class TestTaskManagers(BaseHandlers):
 
         node3 = self.env.create_node(
             cluster_id=self.env.clusters[0].id,
-            role="controller",
+            roles=["controller"],
             pending_addition=True
         )
 
@@ -252,7 +252,7 @@ class TestTaskManagers(BaseHandlers):
                 },
                 {"pending_addition": True},
                 {"pending_addition": True},
-                {"role": "compute", "pending_addition": True}
+                {"roles": ["compute"], "pending_addition": True}
             ]
         )
         supertask = self.env.launch_deployment()
@@ -399,8 +399,8 @@ class TestTaskManagers(BaseHandlers):
             cluster_kwargs={},
             nodes_kwargs=[
                 {"status": "ready", "progress": 100},
-                {"role": "compute", "status": "ready", "progress": 100},
-                {"role": "compute", "pending_addition": True},
+                {"roles": ["compute"], "status": "ready", "progress": 100},
+                {"roles": ["compute"], "pending_addition": True},
             ]
         )
         cluster_id = self.env.clusters[0].id
@@ -486,8 +486,8 @@ class TestTaskManagers(BaseHandlers):
                 "mode": "ha"
             },
             nodes_kwargs=[
-                {"role": "controller", "pending_addition": True},
-                {"role": "compute", "pending_addition": True}
+                {"roles": ["controller"], "pending_addition": True},
+                {"roles": ["compute"], "pending_addition": True}
             ] * 3
         )
         cluster_id = self.env.clusters[0].id

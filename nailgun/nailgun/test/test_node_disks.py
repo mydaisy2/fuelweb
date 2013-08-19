@@ -15,6 +15,7 @@
 #    under the License.
 
 import json
+import unittest
 from copy import deepcopy
 
 from nailgun.test.base import BaseHandlers, reverse
@@ -238,7 +239,7 @@ class TestNodeVolumesInformationHandler(BaseHandlers):
 
     def create_node(self, role):
         self.env.create(
-            nodes_kwargs=[{'role': role, 'pending_addition': True}])
+            nodes_kwargs=[{'roles': [role], 'pending_addition': True}])
 
         return self.env.nodes[0]
 
@@ -277,7 +278,7 @@ class TestVolumeManager(BaseHandlers):
         self.env.create(
             cluster_kwargs={},
             nodes_kwargs=[{
-                'role': role,
+                'roles': [role],
                 'pending_addition': True,
                 'api': True}])
 
