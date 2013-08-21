@@ -23,6 +23,7 @@ requirejs.config({
         'jquery-timeout': 'js/libs/jquery.timeout',
         'jquery-ui': 'js/libs/jquery-ui-1.10.2.custom',
         'jquery-autoNumeric': 'js/libs/autoNumeric',
+        i18next: 'js/libs/i18next.amd.withJQuery-1.6.3',
         utils: 'js/utils',
         lodash: 'js/libs/lodash',
         backbone: 'js/libs/backbone',
@@ -48,6 +49,9 @@ requirejs.config({
         bootstrap: {
             deps: ['jquery']
         },
+        i18next: {
+            deps: ['jquery']
+        },
         'jquery-checkbox': {
             deps: ['jquery']
         },
@@ -61,12 +65,19 @@ requirejs.config({
             deps: ['jquery']
         },
         app: {
-            deps: ['jquery', 'lodash', 'backbone', 'coccyx', 'bootstrap', 'jquery-checkbox', 'jquery-timeout', 'jquery-ui', 'jquery-autoNumeric']
+            deps: ['jquery', 'lodash', 'backbone', 'coccyx', 'bootstrap', 'i18next', 'jquery-checkbox', 'jquery-timeout', 'jquery-ui', 'jquery-autoNumeric']
         }
     }
 });
 
-require(['app'], function (app) {
+require(['app', 'text!i18n/translation.json'], function (app, translation) {
     'use strict';
-    $(document).ready(app.initialize);
+
+    var locale = 'zh-CN';
+    $.i18n.init({
+        lng: locale,
+        resStore: JSON.parse(translation)
+    }).always(function() {
+        $(document).ready(app.initialize);
+    });
 });

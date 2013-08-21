@@ -34,7 +34,7 @@ function(commonViews, supportPageTemplate) {
             window.location = '/api/logs/package';
         },
         render: function() {
-            this.$el.html(this.template());
+            this.$el.html(this.template()).i18n();
             return this;
         }
     });

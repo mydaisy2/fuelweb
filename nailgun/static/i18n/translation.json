@@ -1,0 +1,35 @@
+{
+    "en-US": {
+        "translation": {
+            "navbar": {
+                "stats": {
+                    "total": ["Total", "node"],
+                    "total_plural": ["Total", "nodes"],
+                    "unallocated": ["Unallocated", "node"],
+                    "unallocated_plural": ["Unallocated", "nodes"]
+                }
+            }
+        }
+    },
+    "zh-CN": {
+        "translation": {
+            "navbar": {
+                "environments": "环境",
+                "releases": "版本",
+                "support": "支持",
+                "stats": {
+                    "total": "Total nodes",
+                    "unallocated": "Unallocated nodes"
+                }
+            },
+            "support_page": {
+                "title": "支持",
+                "contact_text": "欢迎提出反馈和改进意见，请点击下面的按钮，我们将尽快回复您。",
+                "irc_text": "如果您有任何问题，可通过IRC（freenode.net网络的 #openstack-fuel 频道）联系开发者。",
+                "log_text": "如果您在使用Fuel Web的过程中遇到任何错误或异常，可能需要将日志提交给支持团队，请点击按钮下载：",
+                "contact_support": "联系支持",
+                "download_logs": "下载日志"
+            }
+        }
+    }
+}

@@ -99,13 +99,14 @@ function(utils, models, dialogViews, navbarTemplate, nodesStatsTemplate, notific
 
     views.NodesStats = Backbone.View.extend({
         template: _.template(nodesStatsTemplate),
+        templateHelpers: _.pick(utils, 'linebreaks'),
         initialize: function(options) {
             _.defaults(this, options);
             this.statistics.on('change', this.render, this);
         },
         render: function() {
             if (this.statistics.deferred.state() == 'resolved') {
-                this.$el.html(this.template({stats: this.statistics}));
+                this.$el.html(this.template(_.extend({stats: this.statistics}, this.templateHelpers)));
             }
             return this;
         }
