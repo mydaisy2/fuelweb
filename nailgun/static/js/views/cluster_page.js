@@ -228,7 +228,7 @@ function(utils, models, commonViews, dialogViews, NodesTab, NetworkTab, Settings
                 this.$('#tab-' + this.activeTab).html(this.tab.render().el);
                 this.registerSubView(this.tab);
             }
-
+            this.$el.i18n();
             return this;
         }
     });

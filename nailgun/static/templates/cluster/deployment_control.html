@@ -9,7 +9,7 @@
 <% } else { %>
   <li class="pull-right deployment-control-box">
     <% var releaseAvailable = cluster.get('release').get('state') == 'available' %>
-    <div class="deployment-control-item-box"><button class="deploy-btn <%= releaseAvailable && (cluster.hasChanges() || cluster.needsRedeployment()) ? '' : 'disabled' %>"><i class="icon-upload-cloud"></i> Deploy Changes</button></div>
+    <div class="deployment-control-item-box"><button class="deploy-btn <%= releaseAvailable && (cluster.hasChanges() || cluster.needsRedeployment()) ? '' : 'disabled' %>"><i class="icon-upload-cloud"></i> <span data-i18n="cluster_page.deploy_changes">Deploy Changes</span></button></div>
     <div class="deployment-control-item-box">
       <% var nodesToAdd = cluster.get('nodes').where({pending_addition: true}) %>
       <% var nodesToDelete = cluster.get('nodes').where({pending_deletion: true}) %>
