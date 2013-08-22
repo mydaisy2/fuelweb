@@ -258,6 +258,7 @@ class TestNode(BaseNodeTestCase):
     @logwrap
     @fetch_logs
     def test_node_multiple_interfaces(self):
+        self.prepare_environment()
         cluster_name = 'node interfaces'
         interfaces_dict = {
             'eth0': ['management'],
