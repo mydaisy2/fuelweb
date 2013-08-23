@@ -182,6 +182,7 @@ class NodeRole(Base):
     id = Column(Integer, primary_key=True)
     node_id = Column(Integer, ForeignKey('nodes.id', ondelete='CASCADE'))
     name = Column(String(50), nullable=False)
+    pending = Column(Boolean, default=False)
 
 
 class Node(Base):
@@ -264,7 +265,11 @@ class Node(Base):
 
     @property
     def roles(self):
-        return [role.name for role in self.role_list]
+        return [role.name for role in self.role_list if not role.pending]
+
+    @property
+    def pending_roles(self):
+        return [role.name for role in self.role_list if role.pending]
 
     @roles.setter
     def roles(self, new_roles):
@@ -272,6 +277,15 @@ class Node(Base):
         for role in new_roles:
             if not role in old_roles:
                 new_role = NodeRole(name=role, node=self)
+                self.role_list.append(new_role)
+        db().commit()
+
+    @pending_roles.setter
+    def pending_roles(self, new_roles):
+        old_roles = self.pending_roles
+        for role in new_roles:
+            if not role in old_roles:
+                new_role = NodeRole(name=role, node=self, pending=True)
                 self.role_list.append(new_role)
         db().commit()
 
