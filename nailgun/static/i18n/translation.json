@@ -23,7 +23,8 @@
                 }
             },
             "path": {
-                "home": "首页"
+                "home": "首页",
+                "environments": "环境"
             },
             "support_page": {
                 "title": "支持",
@@ -85,7 +86,19 @@
                     "step_0": "完成网络验证3个步骤:",
                     "step_1": "1. 每个节点启动测试监听帧",
                     "step_2": "2. 每个节点发送802.1Q封装的UDP帧",
-                    "step_3": "3. 每个节点从其它节点注册测试帧"
+                    "step_3": "3. 每个节点从其它节点注册测试帧",
+                    "ip_range": "IP范围",
+                    "netmask": "网络掩码",
+                    "vlan_id": "VLAN ID",
+                    "gateway": "网关",
+                    "cidr": "CIDR",
+                    "nubmer_of_networks": "网络数量",
+                    "size_of_networks": "网络大小",
+                    "vlan_id_range": "VLAN ID范围",
+                    "use_vlan_tagging": "使用VLAN标记",
+                    "start": "开始",
+                    "end": "结束",
+                    "vm_networks_fixed": "虚机网络（固定）"
                 },
 
                 "settings_tab": {
@@ -127,6 +140,57 @@
                     "bt_rename": "重命名",
                     "bt_delete": "删除",
                     "alert_delete": "清除每个节点并放回未分配节点池"
+                },
+
+                "nodes_tab": {
+                    "add": "增加",
+                    "delete": "删除",
+                    "controller": "控制器",
+                    "compute": "计算",
+                    "cinder": "存储",
+                    "nodes": "节点",
+                    "apply": "应用",
+                    "cancel": "取消",
+                    "discovered": "在线",
+                    "offline": "离线",
+                    "error": "错误"
+                }
+            },
+            "dialog": {
+                "dismiss_settings": {
+                    "title": "确认",
+                    "important": "重要",
+                    "bt_stay": "留在本页",
+                    "bt_leave": "离开并放弃变更",
+                    "default_msg": "设置变更未保存，您想放弃变更并离开么？",
+                    "verify_msg": "正在进行网络验证，您应该保存变更或留在本页"
+                },
+
+                "rhel_license": {
+                    "title": "红帽企业版Linux账户设置",
+                    "alert_text": "安装红帽版的OpenStack平台, 你首先必须下载RHOS和RHEL并缓存在Fuel的主节点上。请选择你的订阅并在下面输入你的凭据开始下载。",
+                    "bt_cancel": "取消",
+                    "bt_download": "下载",
+                    "redhat_username": "红帽账户",
+                    "redhat_password": "红帽密码",
+                    "satellite_server_hostname": "satellite服务器主机名",
+                    "activation_key": "激活码"
+                },
+
+                "create_cluster": {
+                    "title": "创建新OpenStack环境",
+                    "name": "名称",
+                    "openstack_release": "OpenStack版本",
+                    "alert_text": "在部署红帽的openstack时，首先必须先下载RHOS和RHEL并缓存在Fuel的主节点上。你可以通过版本页面或则选择你的订阅类型并输入你的凭证。RHEL和RHOS将自动下载并缓存到你的创建的环境中。",
+                    "bt_cancel": "取消",
+                    "bt_create": "创建"
+                },
+
+                "remove_cluster": {
+                    "title": "删除环境",
+                    "important": "重要",
+                    "bt_cancel": "取消",
+                    "bt_delete": "删除"
                 }
             }
         }

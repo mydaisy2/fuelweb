@@ -275,6 +275,7 @@ function(utils, models, commonViews, dialogViews, nodesTabSummaryTemplate, editN
             if (!this.nodes.deferred || this.nodes.deferred.state() != 'pending') {
                 this.renderNodes();
             }
+            this.$el.i18n();
             return this;
         }
     });

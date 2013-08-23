@@ -82,6 +82,7 @@ function(require, utils, models, simpleMessageTemplate, createClusterDialogTempl
             this.rhelCredentialsForm = new commonViews.RhelCredentialsForm(_.extend({dialog: this}, options));
             this.registerSubView(this.rhelCredentialsForm);
             this.$('.credentials').html('').append(this.rhelCredentialsForm.render().el);
+            this.$el.i18n();
         }
     });
 
@@ -149,6 +150,7 @@ function(require, utils, models, simpleMessageTemplate, createClusterDialogTempl
                 this.$('.release-description').text(this.release.get('description'));
                 this.$('.rhel-license').toggle(this.rhelCredentialsFormVisible());
                 this.rhelCredentialsForm.render();
+                this.$el.i18n();
             }
         },
         renderReleases: function(e) {
@@ -185,6 +187,7 @@ function(require, utils, models, simpleMessageTemplate, createClusterDialogTempl
                 redHatAccount: this.redHatAccount,
                 visible: _.bind(this.rhelCredentialsFormVisible, this)
             });
+            this.$el.i18n();
             return this;
         }
     });
@@ -342,6 +345,7 @@ function(require, utils, models, simpleMessageTemplate, createClusterDialogTempl
         },
         render: function() {
             this.constructor.__super__.render.call(this, {cluster: this.model});
+            this.$el.i18n();
             return this;
         }
     });
@@ -449,8 +453,8 @@ function(require, utils, models, simpleMessageTemplate, createClusterDialogTempl
 
     views.DiscardSettingsChangesDialog = views.Dialog.extend({
         template: _.template(discardSettingsChangesTemplate),
-        defaultMessage: 'Settings were modified but not saved. Do you want to discard your changes and leave the page?',
-        verificationMessage: 'Network verification is in progress. You should save changes or stay on the tab.',
+        defaultMessage: $.t('dialog.dismiss_settings.default_msg', {defaultValue: 'Settings were modified but not saved. Do you want to discard your changes and leave the page?'}),
+        verificationMessage: $.t('dialog.dismiss_settings.verify_msg', {defaultValue: 'Network verification is in progress. You should save changes or stay on the tab.'}),
         events: {
             'click .proceed-btn': 'proceed'
         },
@@ -466,6 +470,7 @@ function(require, utils, models, simpleMessageTemplate, createClusterDialogTempl
                 message: this.message || this.defaultMessage,
                 verification: this.verification || false
             });
+            this.$el.i18n();
             return this;
         }
     });

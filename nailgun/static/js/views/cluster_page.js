@@ -36,7 +36,7 @@ function(utils, models, commonViews, dialogViews, NodesTab, NetworkTab, Settings
     ClusterPage = commonViews.Page.extend({
         navbarActiveElement: 'clusters',
         breadcrumbsPath: function() {
-            return [['Home', '#'], ['Environments', '#clusters'], this.model.get('name')];
+            return [[$.t('path.home', {defaultValue: 'Home'}), '#'], [$.t('path.environments', {defaultValue: 'Environments'}), '#clusters'], this.model.get('name')];
         },
         title: function() {
             return this.model.get('name');

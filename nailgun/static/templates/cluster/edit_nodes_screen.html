@@ -1,7 +1,7 @@
 <div class="roles-block-row nodesbox-header">
   <div class="span10">
     <h3>
-      <%= {add: 'Add', delete: 'Delete'}[action] || action %> <%= {'controller': 'controller', 'compute': 'compute', 'cinder': 'Cinder'}[role] || role %> nodes
+      <%= {add: $.t('cluster_page.nodes_tab.add', {defaultValue: 'Add'}), delete: $.t('cluster_page.nodes_tab.delete', {defaultValue: 'Delete'})}[action] || action %> <%= {'controller': $.t('cluster_page.nodes_tab.controller', {defaultValue: 'controller'}), 'compute': $.t('cluster_page.nodes_tab.compute', {defaultValue: 'compute'}), 'cinder': $.t('cluster_page.nodes_tab.cinder', {defaultValue: 'Cinder'})}[role] || role %> <%= $.t('cluster_page.nodes_tab.nodes', {defaultValue: 'nodes'}) %>
       <span>
         <% if (limit !== null) { %>
           (<%= limit %> node<%= limit != 1 ? 's' : '' %> max)
@@ -33,6 +33,6 @@
 
 <div class="roles-block-row">
   <div class="span10">&nbsp;</div>
-  <div class="span1 pull-right"><div class="btn btn-apply <%= {add: 'btn-success', delete: 'btn-danger'}[action] || '' %>" disabled>Apply</div></div>
-  <div class="span1 pull-right"><div class="btn btn-discard">Cancel</div></div>
+  <div class="span1 pull-right"><div class="btn btn-apply <%= {add: 'btn-success', delete: 'btn-danger'}[action] || '' %>" disabled data-i18n="cluster_page.nodes_tab.apply">Apply</div></div>
+  <div class="span1 pull-right"><div class="btn btn-discard" data-i18n="cluster_page.nodes_tab.cancel">Cancel</div></div>
 </div>

@@ -8,7 +8,7 @@
 %>
 <% if (!node.get('online')) { %>
   <div class="msg-offline">
-    <i class="icon-block"></i>Offline
+    <i class="icon-block"></i><span data-i18n="cluster_page.nodes_tab.offline">Offline</span>
   </div>
 <% } else if (node.get('pending_addition')) { %>
   <div class="msg-warning">
@@ -36,11 +36,11 @@
   </div>
 <% } else if (status == 'error') { %>
   <div class="msg-error">
-    <i class="icon-attention"></i>Error
+    <i class="icon-attention"></i><span data-i18n="cluster_page.nodes_tab.error">Error</span>
   </div>
 <% } else if (status == 'discover') { %>
   <div class="msg-discover">
-    <i class="icon-ok-circle-empty"></i>Discovered
+    <i class="icon-ok-circle-empty"></i><span data-i18n="cluster_page.nodes_tab.discovered">Discovered</span>
   </div>
 <% } else { %>
   <div>
