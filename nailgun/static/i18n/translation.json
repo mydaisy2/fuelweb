@@ -22,9 +22,11 @@
                     "unallocated": "Unallocated nodes"
                 }
             },
-            "path": {
+            "breadcrumb": {
                 "home": "首页",
-                "environments": "环境"
+                "environments": "环境",
+                "releases": "版本",
+                "support": "支持"
             },
             "support_page": {
                 "title": "支持",
@@ -105,7 +107,33 @@
                     "title": "OpenStack设置",
                     "bt_load_defaults": "加载默认配置",
                     "bt_cancel_changes": "取消变更",
-                    "bt_save_settings": "保存设置"
+                    "bt_save_settings": "保存设置",
+                    "access": "访问",
+                    "syslog": "系统日志",
+                    "common": "通用",
+                    "username": "用户名",
+                    "password": "密码",
+                    "tenant": "tenant",
+                    "email": "电子邮件",
+                    "Hostname": "主机名",
+                    "Port": "端口",
+                    "Syslog transport protocol": "系统日志传输协议",
+                    "Hypervisor type": "管理器类型",
+                    "Scheduler driver": "调度器驱动",
+                    "Filter scheduler": "过滤器调度器",
+                    "Simple scheduler": "简单调度器",
+                    "Use qcow format for images": "为映像使用qcow格式",
+                    "Auto assign floating IP": "自动分配浮动IP",
+                    "Start guests on host boot": "主机启动时运行客户机",
+                    "Public Key": "公开密钥",
+                    "Username for Administrator": "管理员用户名",
+                    "Password for Administrator": "管理员密码",
+                    "Tenant (project) name for Administrator": "管理员Tenant(项目)名称",
+                    "Email address for Administrator": "管理员电子邮件",
+                    "Remote syslog hostname": "远程系统日志主机名",
+                    "Remote syslog port": "远程系统日志端口",
+                    "Choose this type of hypervisor if you run OpenStack on hardware": "如果在硬件上运行OpenStack，选择该类型的管理器",
+                    "Choose this type of hypervisor if you run OpenStack on virtual hosts.": "如果在虚拟机上运行OpenStack，选择该类型的管理器"
                 },
 
                 "logs_tab": {

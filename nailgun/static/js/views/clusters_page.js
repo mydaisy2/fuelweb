@@ -29,7 +29,7 @@ function(models, utils, commonViews, dialogViews, clustersPageTemplate, clusterT
 
     ClustersPage = commonViews.Page.extend({
         navbarActiveElement: 'clusters',
-        breadcrumbsPath: [[$.t('path.home', {defaultValue: 'Home'}), '#'], $.t('path.environments', {defaultValue: 'Environments'})],
+        breadcrumbsPath: [['home', '#'], 'environments'],
         title: 'Environments',
         template: _.template(clustersPageTemplate),
         render: function() {

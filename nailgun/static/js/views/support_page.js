@@ -23,7 +23,7 @@ function(commonViews, supportPageTemplate) {
 
     var SupportPage = commonViews.Page.extend({
         navbarActiveElement: 'support',
-        breadcrumbsPath: [['Home', '#'], 'Support'],
+        breadcrumbsPath: [['home', '#'], 'support'],
         title: 'Support',
         template: _.template(supportPageTemplate),
         events: {

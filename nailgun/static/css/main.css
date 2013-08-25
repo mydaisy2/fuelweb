@@ -842,6 +842,7 @@ h6.page-title {
   margin: -10px 0 10px 0;
   border-radius: 0 0 4px 4px;
   min-height: 20px;
+  text-transform: capitalize; 
 }
 
 
