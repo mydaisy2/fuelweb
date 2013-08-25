@@ -18,15 +18,19 @@
                 "releases": "版本",
                 "support": "支持",
                 "stats": {
-                    "total": "Total nodes",
-                    "unallocated": "Unallocated nodes"
+                    "total": "全部节点",
+                    "unallocated": "未分配节点"
                 }
             },
             "breadcrumb": {
                 "home": "首页",
                 "environments": "环境",
                 "releases": "版本",
-                "support": "支持"
+                "support": "支持",
+                "notifications": "通知"
+            },
+            "notifications_page": {
+                "title": "通知"
             },
             "support_page": {
                 "title": "支持",
@@ -206,7 +210,7 @@
                 },
 
                 "create_cluster": {
-                    "title": "创建新OpenStack环境",
+                    "title": "新建OpenStack环境",
                     "name": "名称",
                     "openstack_release": "OpenStack版本",
                     "alert_text": "在部署红帽的openstack时，首先必须先下载RHOS和RHEL并缓存在Fuel的主节点上。你可以通过版本页面或则选择你的订阅类型并输入你的凭证。RHEL和RHOS将自动下载并缓存到你的创建的环境中。",

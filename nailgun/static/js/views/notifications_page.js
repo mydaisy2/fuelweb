@@ -26,7 +26,7 @@ function(utils, models, commonViews, dialogViews, notificationsListTemplate) {
 
     var NotificationsPage = commonViews.Page.extend({
         navbarActiveElement: null,
-        breadcrumbsPath: [['Home', '#'], 'Notifications'],
+        breadcrumbsPath: [['home', '#'], 'notifications'],
         title: 'Notifications',
         template: _.template(notificationsListTemplate),
         templateHelpers: _.pick(utils, 'urlify'),
@@ -59,7 +59,7 @@ function(utils, models, commonViews, dialogViews, notificationsListTemplate) {
             this.notifications.on('sync', this.render, this);
         },
         render: function() {
-            this.$el.html(this.template(_.extend({notifications: this.notifications}, this.templateHelpers)));
+            this.$el.html(this.template(_.extend({notifications: this.notifications}, this.templateHelpers))).i18n();
             return this;
         }
     });
