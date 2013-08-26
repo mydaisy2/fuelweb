@@ -65,6 +65,7 @@ function(utils, models, commonViews, dialogViews, networkTabTemplate, networkTem
             this.checkForChanges();
             this.networkConfiguration.get('networks').invoke('set', {}, {validate: true, net_manager: this.networkConfiguration.get('net_manager')}); // trigger validation check
             this.page.removeFinishedTasks();
+            this.$el.i18n();
         },
         updateFloatingVlanFromPublic: function() {
             var networks = this.networkConfiguration.get('networks');

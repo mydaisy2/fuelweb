@@ -2,7 +2,7 @@
   <% if (task.get('status') == 'ready') { %>
     <div class="alert alert-block global-success alert-success task-result">
       <button type="button" class="close">×</button>
-      <h4>Success</h4>
+      <h4 data-i18n="cluster_page.success">Success</h4>
       <p class="enable-selection"><%= urlify(linebreaks(task.escape('message'))) %></p>
     </div>
   <% } else if (task.get('status') == 'error') { %>
@@ -10,7 +10,7 @@
       <% if (task.get('name') != 'redhat_setup') { %>
         <button type="button" class="close">×</button>
       <% } %>
-      <h4>Error</h4>
+      <h4 data-i18n="cluster_page.error">Error</h4>
       <p class="enable-selection">
         <%= urlify(linebreaks(task.escape('message'))) %>
         <% if (task.get('name') == 'redhat_setup') { %>

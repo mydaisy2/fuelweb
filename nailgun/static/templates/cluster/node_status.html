@@ -8,43 +8,43 @@
 %>
 <% if (!node.get('online')) { %>
   <div class="msg-offline">
-    <i class="icon-block"></i><span data-i18n="cluster_page.nodes_tab.offline">Offline</span>
+    <i class="icon-block"></i><%- $.t('cluster_page.nodes_tab.offline', {defaultValue: 'Offline'}) %>
   </div>
 <% } else if (node.get('pending_addition')) { %>
   <div class="msg-warning">
-    <i class="icon-ok-circle-empty"></i>Pending Addition
+    <i class="icon-ok-circle-empty"></i><%- $.t('cluster_page.nodes_tab.pending_addition', {defaultValue: 'Pending Addition'}) %>
   </div>
 <% } else if (node.get('pending_deletion')) { %>
   <div class="msg-warning">
-    <i class="icon-cancel-circle"></i>Pending Deletion
+    <i class="icon-cancel-circle"></i><%- $.t('cluster_page.nodes_tab.pending_deletion', {defaultValue: 'Pending Deletion'}) %>
   </div>
 <% } else if (status == 'ready') { %>
   <div class="msg-ok">
-    <i class="icon-ok"></i>Ready
+    <i class="icon-ok"></i><%- $.t('cluster_page.nodes_tab.ready', {defaultValue: 'Ready'}) %>
   </div>
 <% } else if (status == 'provisioning') { %>
   <div class="progress">
-    <div class="bar"><p>Installing <%- operatingSystem %></p></div>
+    <div class="bar"><p><%- $.t('cluster_page.nodes_tab.installing', {defaultValue: 'Installing'}) %> <%- operatingSystem %></p></div>
   </div>
 <% } else if (status == 'provisioned') { %>
   <div class="msg-provisioned">
-    <i class="icon-install"></i><%- operatingSystem %> is installed
+    <i class="icon-install"></i><%- operatingSystem %> <%- $.t('cluster_page.nodes_tab.is_installed', {defaultValue: 'is installed'}) %>
   </div>
 <% } else if (status == 'deploying') { %>
   <div class="progress progress-success">
-    <div class="bar"><p>Installing OpenStack</p></div>
+    <div class="bar"><p><%- $.t('cluster_page.nodes_tab.installing_openstack', {defaultValue: 'Installing OpenStack'}) %></p></div>
   </div>
 <% } else if (status == 'error') { %>
   <div class="msg-error">
-    <i class="icon-attention"></i><span data-i18n="cluster_page.nodes_tab.error">Error</span>
+    <i class="icon-attention"></i><%- $.t('cluster_page.nodes_tab.error', {defaultValue: 'Error'}) %>
   </div>
 <% } else if (status == 'discover') { %>
   <div class="msg-discover">
-    <i class="icon-ok-circle-empty"></i><span data-i18n="cluster_page.nodes_tab.discovered">Discovered</span>
+    <i class="icon-ok-circle-empty"></i><%- $.t('cluster_page.nodes_tab.discovered', {defaultValue: 'Discovered'}) %>
   </div>
 <% } else { %>
   <div>
     <%= status %>
   </div>
 <% } %>
-<a href="<%- logsLink %>" class="logs-link"><i class="icon-logs"></i>View logs</a>
+<a href="<%- logsLink %>" class="logs-link"><i class="icon-logs"></i><%- $.t('cluster_page.nodes_tab.view_logs', {defaultValue: 'View logs'}) %></a>

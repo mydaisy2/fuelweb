@@ -37,7 +37,7 @@
       </div>
 
       <% if (cluster.task('verify_networks', 'ready')) { %>
-        <div class="alert alert-success enable-selection">Verification succeeded. Your network is configured correctly.</div>
+        <div class="alert alert-success enable-selection" data-i18n="cluster_page.network_tab.alert_success">Verification succeeded. Your network is configured correctly.</div>
       <% } else if (task && task.get('status') == 'error') { %>
         <div class="alert alert-error enable-selection">
           Verification failed.<br/>

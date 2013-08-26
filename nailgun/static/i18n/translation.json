@@ -85,6 +85,8 @@
                 "computes": "计算",
                 "cinders": "存储",
                 "no_nodes_text": "该类型的节点不存在",
+                "error": "错误",
+                "success": "成功",
 
                 "network_tab": {
                     "title": "网络设置",
@@ -112,7 +114,8 @@
                     "public": "公开",
                     "floating": "浮动",
                     "management": "管理",
-                    "storage": "存储"
+                    "storage": "存储",
+                    "alert_success": "验证成功。网络配置正确。"
                 },
 
                 "settings_tab": {
@@ -193,7 +196,15 @@
                     "cancel": "取消",
                     "discovered": "在线",
                     "offline": "离线",
-                    "error": "错误"
+                    "error": "错误",
+                    "select_all": "选择全部",
+                    "view_logs": "查看日志",
+                    "pending_addition": "等待增加",
+                    "pending_deletion": "等待删除",
+                    "ready": "已就绪",
+                    "installing": "正在安装",
+                    "is_installed": "已安装",
+                    "installing_openstack": "正在安装OpenStack"
                 }
             },
             "dialog": {
@@ -246,6 +257,68 @@
                     "ha_text": "这个配置需要多个OpenStack控制节点(3+)和所有OpenStack高可用组件，包括MySQL/Galera,RabbitMQ,Cinder,以及OpenStack的API服务。如果想建立一个生产级或者更多节点的OpenStack云，请选择这个配置。",
                     "bt_cancel": "取消",
                     "bt_apply": "应用"
+                },
+
+                "show_node": {
+                    "label_manufacturer": "设备：",
+                    "label_mac_address": "MAC地址：",
+                    "system": "系统",
+                    "memory": "内存",
+                    "disks": "磁盘",
+                    "interfaces": "接口",
+                    "bt_close": "关闭",
+                    "bt_network_configuration": "网络配置",
+                    "bt_disk_configuration": "磁盘配置",
+                    "product": "产品",
+                    "family": "系列",
+                    "version": "版本",
+                    "serial": "序列号",
+                    "manufacturer": "设备",
+                    "real": "物理",
+                    "total": "全部",
+                    "model": "模块",
+                    "frequency": "频率",
+                    "slots": "插槽",
+                    "maximum capacity": "最大负载",
+                    "type": "类型",
+                    "size": "大小",
+                    "name": "名称",
+                    "disk": "磁盘",
+                    "max speed": "最大速度",
+                    "current speed": "当前速度",
+                    "netmask": "网络掩码"
+                },
+
+                "discard_changes": {
+                    "title": "放弃变更",
+                    "added": "增加：",
+                    "deleted": "删除：",
+                    "node": "节点",
+                    "controller": "控制",
+                    "compute": "计算",
+                    "cinder": "存储",
+                    "bt_cancel": "取消",
+                    "bt_discard": "放弃",
+                    "alert_text": "确定要放弃所有变更吗？"
+                },
+
+                "display_changes": {
+                    "title": "部署变更",
+                    "added": "增加：",
+                    "node": "节点",
+                    "controller": "控制",
+                    "compute": "计算",
+                    "cinder": "存储",
+                    "changed": "变更：",
+                    "deleted": "删除：",
+                    "bt_cancel": "取消",
+                    "bt_deploy": "部署",
+                    "openstack_settings": "OpenStack设置",
+                    "network_settings": "网络设置",
+                    "disks_text": "以下节点的磁盘配置变更：",
+                    "alert_text": "一些节点状态错误，需要重新部署。",
+                    "warning_controller": "部署后的环境将不包含足够数量的控制器，也许不可使用。",
+                    "warning_compute": "建议部署计算节点。"
                 }
             }
         }

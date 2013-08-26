@@ -163,6 +163,7 @@ function(utils, models, commonViews, dialogViews, nodesTabSummaryTemplate, editN
                     this.$el.append('<hr>');
                 }
             }, this);
+            this.$el.i18n();
             return this;
         }
     });

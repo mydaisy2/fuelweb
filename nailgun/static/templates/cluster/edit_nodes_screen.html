@@ -12,7 +12,7 @@
   <div class="span2">
     <% if (nodes.length && (!nodes.deferred || nodes.deferred && nodes.deferred.state() != 'pending') && (limit === null || nodes.length <= limit)) { %>
       <label class="checkbox pull-right">
-        <input type="checkbox" class="select-all-tumbler"> Select All
+        <input type="checkbox" class="select-all-tumbler"> <%- $.t('cluster_page.nodes_tab.select_all', {defaultValue: 'Select All'}) %>
       </label>
     <% } %>
   </div>
