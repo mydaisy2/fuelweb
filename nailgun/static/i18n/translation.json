@@ -32,6 +32,10 @@
             "notifications_page": {
                 "title": "通知"
             },
+            "notifications_popover": {
+                "view_all": "查看全部",
+                "no_notifications_text": "没有通知可显示"
+            },
             "support_page": {
                 "title": "支持",
                 "contact_text": "欢迎提出反馈和改进意见，请点击下面的按钮，我们将尽快回复您。",
@@ -104,7 +108,11 @@
                     "use_vlan_tagging": "使用VLAN标记",
                     "start": "开始",
                     "end": "结束",
-                    "vm_networks_fixed": "虚机网络（固定）"
+                    "vm_networks_fixed": "虚机网络（固定）",
+                    "public": "公开",
+                    "floating": "浮动",
+                    "management": "管理",
+                    "storage": "存储"
                 },
 
                 "settings_tab": {
@@ -222,7 +230,22 @@
                     "title": "删除环境",
                     "important": "重要",
                     "bt_cancel": "取消",
-                    "bt_delete": "删除"
+                    "bt_delete": "删除",
+                    "text1": "有动作未完成，删除环境可能失败，并导致状态不混乱。",
+                    "text2": "每个节点都将被删除并放回未非配节点池。"
+                },
+
+                "change_cluster_mode": {
+                    "title": "变更环境模式",
+                    "deployment_mode": "部署模式：",
+                    "single_node": "单节点",
+                    "multi_node": "多节点",
+                    "multi_node_with_ha": "HA多节点",
+                    "single_node_text": "如果你想试用OpenStack，这个是一个简单的配置。你将获得一个安装OpenStack所有组件的功能齐全的私有云。这个节点同时也包含计算节点的角色。",
+                    "multi_node_text": "在这个配置中，OpenStack控制节点部署从计算节点和存储节点分离出来。此模式假定有一个控制节点，一个或多个计算和存储节点存在。你可以添加更多的节点来扩展你的云。",
+                    "ha_text": "这个配置需要多个OpenStack控制节点(3+)和所有OpenStack高可用组件，包括MySQL/Galera,RabbitMQ,Cinder,以及OpenStack的API服务。如果想建立一个生产级或者更多节点的OpenStack云，请选择这个配置。",
+                    "bt_cancel": "取消",
+                    "bt_apply": "应用"
                 }
             }
         }

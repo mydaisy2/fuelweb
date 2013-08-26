@@ -257,6 +257,7 @@ function(require, utils, models, simpleMessageTemplate, createClusterDialogTempl
         render: function() {
             this.constructor.__super__.render.call(this, {cluster: this.model});
             this.toggleTypes();
+            this.$el.i18n();
             return this;
         }
     });

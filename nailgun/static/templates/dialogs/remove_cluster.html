@@ -6,9 +6,9 @@
   <div class="msg-error">
     <span class="label label-important" data-i18n="dialog.remove_cluster.important">Important</span>
     <% if (cluster.get('tasks').where({status: 'running'}).length) { %>
-      There are incompleted actions. Removing of the environment may fail and lead to inconsistent state.
+      <%- $.t('dialog.remove_cluster.text1', {defaultValue: "There are incompleted actions. Removing of the environment may fail and lead to inconsistent state."}) %>
     <% } else { %>
-      Each node will be cleaned up and returned to the pool of unallocated nodes.
+      <%- $.t('dialog.remove_cluster.text2', {defaultValue: 'Each node will be cleaned up and returned to the pool of unallocated nodes.'}) %>
     <% } %>
   </div>
 </div>

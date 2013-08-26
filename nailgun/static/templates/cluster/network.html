@@ -1,5 +1,5 @@
 <% var networkName = network.get('name') %>
-<legend class="networks"><%- networkName != 'fixed' ? networkName : $.t('cluster_page.network_tab.vm_networks_fixed', {defaultValue: 'VM Networks (Fixed)'}) %></legend>
+<legend class="networks"><%- networkName != 'fixed' ? $.t('cluster_page.network_tab.'+networkName, {defaultValue: networkName}) : $.t('cluster_page.network_tab.vm_networks_fixed', {defaultValue: 'VM Networks (Fixed)'}) %></legend>
 
 <% var disabled = locked ? 'disabled' : '' %>
 <% var vlanManager = net_manager == 'VlanManager' ? '' : 'hide' %>

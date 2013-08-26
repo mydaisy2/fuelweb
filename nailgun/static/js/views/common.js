@@ -202,6 +202,7 @@ function(utils, models, dialogViews, navbarTemplate, nodesStatsTemplate, notific
                 this.$el.html('');
                 this.unbindEvents();
             }
+            this.$el.i18n();
             return this;
         }
     });
