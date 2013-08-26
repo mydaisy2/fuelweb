@@ -16,11 +16,12 @@
 import logging
 import unittest
 from devops.helpers.helpers import wait
+from nose.plugins.attrib import attr
 from fuelweb_test.helpers import Ebtables
 from fuelweb_test.integration.base_node_test_case import BaseNodeTestCase
 from fuelweb_test.integration.decorators import snapshot_errors, \
     debug, fetch_logs
-from fuelweb_test.settings import EMPTY_SNAPSHOT
+from fuelweb_test.settings import EMPTY_SNAPSHOT, OPENSTACK_RELEASE
 
 logging.basicConfig(
     format=':%(lineno)d: %(asctime)s %(message)s',
@@ -34,18 +35,21 @@ logwrap = debug(logger)
 class TestNode(BaseNodeTestCase):
     @logwrap
     @fetch_logs
+    @attr('centos')
     def test_release_upload(self):
         self.prepare_environment()
         self._upload_sample_release()
 
     @logwrap
     @fetch_logs
+    @attr('centos')
     def test_http_returns_no_error(self):
         self.prepare_environment()
         self.client.get_root()
 
     @logwrap
     @fetch_logs
+    @attr('centos')
     def test_create_empty_cluster(self):
         self.prepare_environment()
         self.create_cluster(name='empty')
@@ -53,6 +57,7 @@ class TestNode(BaseNodeTestCase):
     @snapshot_errors
     @logwrap
     @fetch_logs
+    @attr('centos')
     def test_node_deploy(self):
         self.prepare_environment()
         self.bootstrap_nodes(self.devops_nodes_by_names(['slave-01']))
@@ -60,6 +65,7 @@ class TestNode(BaseNodeTestCase):
     @snapshot_errors
     @logwrap
     @fetch_logs
+    @attr('centos')
     def test_updating_nodes_in_cluster(self):
         self.prepare_environment()
         cluster_id = self.create_cluster(name='empty')
@@ -70,6 +76,7 @@ class TestNode(BaseNodeTestCase):
     @snapshot_errors
     @logwrap
     @fetch_logs
+    @attr('centos')
     def test_one_node_provisioning(self):
         self.prepare_environment()
         cluster_id = self.create_cluster(name="provision")
@@ -82,6 +89,7 @@ class TestNode(BaseNodeTestCase):
     @snapshot_errors
     @logwrap
     @fetch_logs
+    @attr('centos')
     def test_simple_cluster_flat(self):
         cluster_id = self.prepare_environment(settings={
             'controller': ['slave-01'],
@@ -97,6 +105,7 @@ class TestNode(BaseNodeTestCase):
     @snapshot_errors
     @logwrap
     @fetch_logs
+    @attr('centos')
     def test_simple_cluster_vlan(self):
         self.prepare_environment()
         cluster_name = 'simple_vlan'
@@ -114,6 +123,7 @@ class TestNode(BaseNodeTestCase):
     @snapshot_errors
     @logwrap
     @fetch_logs
+    @attr('centos')
     def test_network_config(self):
         cluster_id = self.prepare_environment(settings={
             'controller': ['slave-01'],
@@ -127,6 +137,7 @@ class TestNode(BaseNodeTestCase):
     @snapshot_errors
     @logwrap
     @fetch_logs
+    @attr('centos')
     def test_node_deletion(self):
         cluster_id = self.prepare_environment(settings={
             'controller': ['slave-01'],
@@ -150,6 +161,7 @@ class TestNode(BaseNodeTestCase):
     @snapshot_errors
     @logwrap
     @fetch_logs
+    @attr('centos')
     def test_network_verify_with_blocked_vlan(self):
         self.prepare_environment()
         cluster_name = 'net_verify'
@@ -174,6 +186,7 @@ class TestNode(BaseNodeTestCase):
     @snapshot_errors
     @logwrap
     @fetch_logs
+    @attr('centos')
     def test_multinic_bootstrap_booting(self):
         self.prepare_environment()
         slave = self.nodes().slaves[0]
@@ -196,6 +209,7 @@ class TestNode(BaseNodeTestCase):
     @snapshot_errors
     @logwrap
     @fetch_logs
+    @attr('centos')
     def test_simple_cluster_with_cinder(self):
         cluster_id = self.prepare_environment(settings={
             'controller': ['slave-01'],
@@ -209,6 +223,7 @@ class TestNode(BaseNodeTestCase):
     @snapshot_errors
     @logwrap
     @fetch_logs
+    @attr('centos')
     def test_add_compute_node(self):
         cluster_id = self.prepare_environment(
             name='add compute node',
@@ -232,6 +247,7 @@ class TestNode(BaseNodeTestCase):
     @snapshot_errors
     @logwrap
     @fetch_logs
+    @attr('centos')
     def test_floating_ips(self):
         self.prepare_environment()
         cluster_name = 'floating_ips'
@@ -274,6 +290,7 @@ class TestNode(BaseNodeTestCase):
     @snapshot_errors
     @logwrap
     @fetch_logs
+    @attr('centos')
     def test_node_disk_sizes(self):
         self.prepare_environment()
         # all nodes have 3 identical disks with same size
@@ -320,6 +337,16 @@ class TestNode(BaseNodeTestCase):
                     str_block_devices,
                     'vdc\s+252:32\s+0\s+20G\s+0\s+disk'
                 )
+
+    @logwrap
+    @fetch_logs
+    @attr('redhat')
+    def test_download_redhat(self):
+        self.prepare_environment()
+        self.update_redhat_credentials()
+        self.assert_release_state(OPENSTACK_RELEASE, state='available')
+        # self.ci().environment().snapshot(
+        #     name='empty', description='empty', force=True)
 
 if __name__ == '__main__':
     unittest.main()
