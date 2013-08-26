@@ -221,6 +221,7 @@ function(utils, models, commonViews, dialogViews, networkTabTemplate, networkTem
             }));
             this.renderNetworks();
             this.renderVerificationControl();
+            this.$el.i18n();
             return this;
         }
     });

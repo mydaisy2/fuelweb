@@ -92,6 +92,7 @@ function(utils, models, commonViews, dialogViews, settingsTabTemplate, settingsG
                     this.$('.settings').append(settingsGroupView.render().el);
                 }, this);
             }
+            this.$el.i18n();
             return this;
         },
         bindTaskEvents: function(task) {
