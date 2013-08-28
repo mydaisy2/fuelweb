@@ -562,5 +562,10 @@ define(['utils'], function(utils) {
         urlRoot: '/api/ostf'
     });
 
+    models.FuelKey = Backbone.Model.extend({
+        constructorName: 'FuelKey',
+        urlRoot: '/api/registration/key'
+    });
+
     return models;
 });
