@@ -657,6 +657,7 @@ function(utils, models, commonViews, dialogViews, nodesTabSummaryTemplate, editN
                 this.renderDisks();
                 this.checkForChanges();
             }
+            this.$el.i18n();
             return this;
         }
     });
@@ -873,6 +874,7 @@ function(utils, models, commonViews, dialogViews, nodesTabSummaryTemplate, editN
             if (this.loading && this.loading.state() != 'pending') {
                 this.renderInterfaces();
             }
+            this.$el.i18n();
             return this;
         }
     });
@@ -916,6 +918,7 @@ function(utils, models, commonViews, dialogViews, nodesTabSummaryTemplate, editN
                 containment: this.screen.$('.node-networks'),
                 disabled: this.screen.isLocked()
             }).disableSelection();
+            this.$el.i18n();
             return this;
         }
     });

@@ -204,7 +204,26 @@
                     "ready": "已就绪",
                     "installing": "正在安装",
                     "is_installed": "已安装",
-                    "installing_openstack": "正在安装OpenStack"
+                    "installing_openstack": "正在安装OpenStack",
+                    "bt_return": "返回节点列表",
+                    "bt_load_defaults": "恢复默认",
+                    "bt_cancel_changes": "取消变更",
+                    "bt_apply": "应用",
+                    "configure": "配置",
+                    "node_interfaces": "节点 接口",
+                    "node_disks": "节点 磁盘",
+                    "speed": "速度：",
+                    "public": "公共",
+                    "floating": "浮动",
+                    "storage": "存储",
+                    "management": "管理",
+                    "fixed": "固定",
+                    "alert_drag_and_drop": "使用拖拽在物理接口之间移动逻辑网络",
+                    "total_space": "全部空间：",
+                    "unallocated": "未分配",
+                    "disk_information": "磁盘信息",
+                    "volume_groups": "卷组",
+                    "use_all_allowed_space": "使用全部可用空间"
                 }
             },
             "dialog": {
