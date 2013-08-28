@@ -28,6 +28,7 @@ from nailgun.db import db
 from nailgun import notifier
 from nailgun.logger import logger
 from nailgun.errors import errors
+from nailgun.api.models import Cluster
 from nailgun.api.models import Node
 from nailgun.api.models import Network
 from nailgun.api.models import NetworkAssignment
@@ -180,6 +181,14 @@ class NodeCollectionHandler(JSONHandler):
         data = self.checked_data()
 
         node = Node()
+        if "cluster_id" in data:
+            # FIXME(vk): this part is needed only for tests. Normally,
+            # nodes are created only by agent and POST requests don't contain
+            # cluster_id, but our integration and unit tests widely use it.
+            # We need to assign cluster first
+            cluster_id = data.pop("cluster_id")
+            if cluster_id:
+                node.cluster = db.query(Cluster).get(cluster_id)
         for key, value in data.iteritems():
             if key == "id":
                 continue
