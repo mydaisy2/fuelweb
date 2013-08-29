@@ -433,7 +433,7 @@ class BaseNodeTestCase(BaseTestCase):
     @logwrap
     def update_redhat_credentials(self, username=REDHAT_USERNAME, password=REDHAT_PASSWORD):
         # release name is in environment variable OPENSTACK_RELEASE
-        release_id = self.client.get_release_id()
+        release_id = self.client.get_release_id('RHOS')
         self.client.update_redhat_setup({
             "release_id": release_id,
             "username": username,
@@ -442,7 +442,12 @@ class BaseNodeTestCase(BaseTestCase):
             "password": password,
             "activation_key": ""})
         tasks = self.client.get_tasks()
-        return self._tasks_wait(tasks, 60 * 20)
+        # wait for 'redhat_setup' task only. Front-end works same way
+        for task in tasks:
+            if task['name'] == 'redhat_setup' \
+                    and task['result']['release_info']['release_id'] \
+                            == release_id:
+                return self._task_wait(task, 60 * 60)
 
     def assert_release_state(self, release_name, state='available'):
         for release in self.client.get_releases():
