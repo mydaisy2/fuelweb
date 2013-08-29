@@ -343,8 +343,14 @@ class TestNode(BaseNodeTestCase):
     @attr('redhat')
     def test_download_redhat(self):
         self.prepare_environment()
+
+        # download redhat repo from local place to boost the test
+        # remote = self.nodes().admin.remote('internal', 'root', 'r00tme')
+        # remote.execute('wget -q http://172.18.67.168/rhel6/rhel-rpms.tar.gz')
+        # remote.execute('tar xzf rhel-rpms.tar.gz -C /')
+
         self.update_redhat_credentials()
-        self.assert_release_state(OPENSTACK_RELEASE, state='available')
+        self.assert_release_state('RHOS', state='available')
         # self.ci().environment().snapshot(
         #     name='empty', description='empty', force=True)
 
